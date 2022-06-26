@@ -9,6 +9,17 @@ $(document).ready(function(){
             $('.root-container').removeClass('sticky');
 
         }
+
+        if(this.scrollY >500){
+            $('.scroll-up-button').addClass('show');
+        }else{
+            $('.scroll-up-button').removeClass('show');
+
+        }
+    });
+
+    $('.scroll-up-button').click(()=>{
+        $('html').animate({scrollTop:0});
     });
 
 
