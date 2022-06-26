@@ -1,0 +1,296 @@
+<!-- HTML SECTION START  -->
+
+
+<!-- services section start  -->
+<section class="services">
+    <div class="parent-Container">
+        <h2 class="title">
+            My services
+        </h2>
+
+
+        <div class="cards">
+            <div class="box">
+                <i class="fas fa-paint-brush"></i>
+                <h3 class="text">Web Design</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet, quo. Voluptate blanditiis tempore explicabo aut vitae, eveniet voluptates quo fuga!</p>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-chart-area"></i>
+                <h3 class="text">Advertising</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet, quo. Voluptate blanditiis tempore explicabo aut vitae, eveniet voluptates quo fuga!</p>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-code"></i>
+                <h3 class="text">Apps Design</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet, quo. Voluptate blanditiis tempore explicabo aut vitae, eveniet voluptates quo fuga!</p>
+            </div>
+        </div>
+
+    </div>   
+</section>
+
+
+<!-- skills section start  -->
+
+
+
+
+
+<!-- css styling  -->
+
+/* services section styling  */
+
+section.services{
+    /* border: 0.2rem red solid; */
+    background-color: #000;
+
+}
+
+
+
+section .parent-Container .cards{
+
+    /* border: 0.2rem blue solid; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10rem;
+
+}
+
+
+.services .title{
+    font-family: 'Ubuntu', sans-serif; 
+    font-size: 4rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 6rem;
+    padding-bottom: 2rem;
+    color: #fff;
+
+
+}
+section .parent-Container .cards i{
+    font-size: 5rem;
+    color: crimson;
+    transition: all 0.3s ease;
+
+}
+section .parent-Container .cards .text{
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin: 1rem 0 0.7rem 0;
+
+}
+
+section .parent-Container .cards .box{
+    /* width: calc(33% - 2rem); */
+    flex-basis: calc(33% - 2rem);
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 2.5rem;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+
+}
+section .parent-Container .cards .box:hover{
+    background-color: crimson;
+}
+section .parent-Container .cards .box:hover i{
+    color: #fff;
+    font-size: 5.5rem;
+
+}
+
+
+
+
+
+
+/* skills section styling  */
+
+
+section.skills .title{
+    font-family: 'Ubuntu', sans-serif; 
+    font-size: 4rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 6rem;
+    padding-bottom: 2rem;
+
+
+}
+.skills{
+    border: 0.2rem red solid;
+}
+.skills-content{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.skills .skills-content .column{
+    width: calc(50% - 3rem);
+    border: 0.2rem red solid;
+
+}
+
+.skills .skills-content .left .text{
+    font-size: 2rem;
+    font-weight:600;
+    margin-bottom: 1rem;
+
+
+}
+
+.skills .skills-content .right .bars{
+    margin-bottom: 1.5rem;
+
+}
+
+.skills .skills-content .right .info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.skills .skills-content .right span{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+
+
+<!-- Media query start  -->
+
+
+/* Media query start  */
+
+
+@media(max-width:1140) {
+
+    .about .about-content .column{
+        width:50%;
+    }
+
+    .about .about-content .left img{
+        max-width: 35rem;
+        max-height: 35rem;
+        height: auto;
+        width: 100%;
+        
+    }
+    
+}
+@media(max-width:890px){
+    .about .about-content{
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .about .about-content .left img{
+        margin-bottom: 2rem;
+    }
+    .about .about-content .column{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+    
+}
+}
+
+@media(max-width:1066px){
+    html{
+        font-size: 54%;
+    }
+
+}
+
+@media(max-width:947px){
+    html{
+        font-size: 55%;
+    }
+    .parent-Container{
+        padding: 0 5rem;
+    }
+
+    .menu-btn{
+        display: block;
+        z-index: 999;
+    }
+
+
+    .root-container .menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 100%;
+        background-color: #111;
+        color: #fff;
+         display: flex;
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center; 
+        transition: all 0.3s ease-in-out;
+    }
+
+    .root-container .menu.active{
+        left: 0;
+    }
+
+    .root-container .menu li a{
+        font-size: 2.3rem;
+    }
+    .root-container .menu li a:hover{
+        font-size: 2.6rem;
+    }
+    .root-container .menu li{
+        margin: 2rem 0;
+    }
+
+    /* cross button  */
+    .menu-btn i.active:before{
+        content: '\f00d';
+
+    }
+}
+
+@media(max-width:660px){
+html{
+    font-size: 50%;
+}
+}
+
+@media(max-width:806px){
+    section .parent-Container .cards{
+
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10rem;
+    
+    }
+    section .parent-Container .box{
+        width:calc(33% - 2rem);
+        /* width: calc(100%); */
+        margin: 1rem 0 1rem 0;
+        
+    
+    }
+}
