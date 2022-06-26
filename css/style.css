@@ -12,6 +12,7 @@
 /* setting font size  */
 html{
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 
@@ -57,6 +58,10 @@ html{
         text-shadow: 2px 2px 1px black;
     }
 
+.navbar-content .logo a{
+    text-decoration: none;
+    color: #fff;
+}
     .navbar-content .menu li{
         list-style: none;
         display: inline-block;
@@ -114,6 +119,7 @@ footer{
     text-align: center;
 
 }
+
 
 footer span a{
     color: crimson;
