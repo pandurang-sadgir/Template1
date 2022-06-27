@@ -18,6 +18,9 @@ $(document).ready(function(){
         }
     });
 
+
+    
+
     $('.scroll-up-button').click(()=>{
         $('html').animate({scrollTop:0});
     });
@@ -28,6 +31,15 @@ $(document).ready(function(){
         //Cross icons
         $('.root-container .navbar-content .menu-btn i').toggleClass('active');
         
+    });
+
+
+    
+    $('.navbar-content .menu li a').click(function(){
+        $('.root-container .navbar-content .menu').removeClass('active');
+        $('.root-container .navbar-content .menu-btn i').removeClass('active');
+            
+
     });
 
 
@@ -55,7 +67,17 @@ $(document).ready(function(){
             }
         }
     })
-    
+
+
+    // Typed text animation 
+
+
+    let typed= new Typed('#text-animation',{
+        strings: ['Youtuber', 'Developer', 'Blogger','Designer','Freelancer'],
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop:true,
+    })
 });
 
 
