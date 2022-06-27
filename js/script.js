@@ -34,6 +34,7 @@ $(document).ready(function(){
     });
 
 
+    // Note : we can add '.menu-btn' class to an anchor tag ,to achieve same functinality. 
     
     $('.navbar-content .menu li a').click(function(){
         $('.root-container .navbar-content .menu').removeClass('active');
