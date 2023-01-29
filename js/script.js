@@ -1,32 +1,26 @@
 var menus = document.getElementById('menu-bar');
 var bar = document.getElementById('menu-btn');
 var close = document.getElementById('close-btn');
-console.log(bar,'this is bar element');
 
-if(bar){
-    bar.addEventListener('click',()=>{
-        menus.classList.add('active');
-    });
+if(bar) {
+  bar.addEventListener('click',()=>{
+  menus.classList.add('active');
+  });
 }
 
 
-if(close){
-    close.addEventListener('click',()=>{
-        menus.classList.remove('active');
-    });
+if(close) {
+  close.addEventListener('click',()=>{
+  menus.classList.remove('active');
+  });
 }
 
 
 document.onclick = function (clickEvent) {
-    if(!bar.contains(clickEvent.target)){
-        menus.classList.remove('active');
-    }
-
-
-    
-    console.log(clickEvent);
-    console.log(bar,'this if fetch data');
+  if(!bar.contains(clickEvent.target)){
+  menus.classList.remove('active');
   }
+}
 
 // $(document).ready(function(){
 //     $(window).scroll(function () { 
