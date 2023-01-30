@@ -1,921 +1,206 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@200;300;400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;300;400;500;600;800&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration:none;
-
-}
-
-/* setting font size  */
-html{
-    font-size: 62.5%;
-    scroll-behavior: smooth;
-    scrollbar-width:thin;          /* "auto" or "thin" */
-    scrollbar-color: crimson #333;   /* scroll thumb and track */ 
-    overflow-y: scroll;
-    
-    
-}
-
-
-html::-webkit-scrollbar{
-    width:0.5vw;
-}
-
-html::-webkit-scrollbar-track{
-background-color: #222;
-border-radius: 1rem;
+ * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: #fff;
+  list-style-type: none;
 
 }
 
-html::-webkit-scrollbar-thumb{
-    background-color: crimson;
-    border-radius:1rem;
+html {
+  font-size: 62.5%;
+}
 
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.5;
+  overflow-x: hidden;
+  position: relative;
+}
+  
+/* container fluid */
+.container-fluid {
+  width: 100%;
+}
+
+.container {
+  max-width: 132rem;
+  margin: auto;
+  padding: 0 0.75rem;
 }
 
 
+/* Navigation bar */
+nav {
+  background-color: #645CBB;
+}
 
-/* scrollbar styling */
+.navbar-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.75rem 0;  
+  box-sizing: border-box;
+}
 
+
+.navbar-content .logo{
+  font-size: 2rem;
+  white-space: nowrap;
+  padding:0.315rem 0;
+}
+
+.menu{
+  display: flex;
+  padding:0.315rem 0;
+
+}
+
+.menu li{
+  align-items: center;
+  padding:0.75rem 0;
+  margin: 0.2rem 0.8rem;
+  
+}
+
+.menu li a{
+  position: relative;
+  margin-left: 1.5rem;
+}
+
+.menu li a::after
+{
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0.2rem;
+  left: 0;
+  bottom: -0.75rem;
+  background-color: #EBC7E6;
+  transition: all 0.2s linear;
+}
+
+.menu li a:hover::after{
+ width: 100%;
+}
+
+/* Styles for an menu button  */
+.close-btn {
+  display: none;
+}
+
+.menu-btn {
+  display: none;
+}
+
+/* Media Query */
+@media screen and (max-width:1400px) {
+  .container {
+    max-width: 132rem;
+} 
+
+
+  h1{
+    background-color: black;
+  }
+}
+
+
+@media screen and (max-width:1200px) {
+  .container {
+    max-width: 114rem;   
+}
+  h1{
+    background-color: blue;
+  
+}
+}
+
+@media screen and (max-width:992px) {
+ 
+  .container {
+    max-width: 96rem;   
+}
+  h1{
+    background-color: orange;
+  
+}
+}
+
+@media screen and (max-width:768px) {
+  .container {
+    max-width: 72rem;   
+}
+
+  .menu{
+    display: block;
+    position: absolute;
+    height: 100vh;
+    width: 20rem;
+    top: 0;
+    right: -50rem;
+    text-align: justify;
+    background-color:#645CBB;
+    overflow-x: hidden;
+    transition: all 0.5s ease;
+  }
+
+
+  .menu.active{
+    right: 0;
+  }
+
+
+  .close-btn {
+    display: inherit;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    cursor: pointer;
+  }
+  
+  .menu-btn {
+    display: block;
+    margin-right: 1rem;
+    cursor: pointer;
+  }
   
 
-/* creating main container */
-.root-container{
-    position: fixed;
-    width: 100%;
-    padding: 3rem 0;
-    z-index: 9999;
-    transition: all 0.3s ease;
-    /* border: 0.2rem blue solid; */
-    /* background-color: crimson; */
-}
-
-.root-container.sticky{
-    padding: 1.5rem 0;
-    background-color: crimson;
-}
-
-/* Here parent container is max-width container  */
-.parent-Container{
-    max-width: 130rem; 
-    padding: 0 8rem;
-    margin: auto;
-}
-
-
- 
-
-.root-container .navbar-content{
-    display: flex;
-    flex-direction: row;
-    /* -moz-flex-wrap: wrap; */
-    /* flex-wrap: wrap; */
-    align-items: center;
-    justify-content: space-between;
-
-}
-.navbar-content .logo{
-        font-size: 3.5rem;
-        font-weight: 600;
-        color: white;
-        text-shadow: 2px 2px 1px black;
-    }
-
-.navbar-content .logo a{
-    text-decoration: none;
-    color: #fff;
-}
-    .navbar-content .menu li{
-        list-style: none;
-        display: inline-block;
-       
-    }
-
-    .navbar-content .menu li a{
-        color: #fff;
-        font-size: 2rem;
-        font-weight: 500;
-        margin-left: 2.5rem;
-        cursor:pointer;
-        transition-property: all;
-        transition-duration: 0.3s;
-        transition-timing-function:ease;
-        display: block;
-    }
-    .navbar-content .menu  li a:hover {
-        color:crimson;
-        font-size:2.2rem;
-    }
-    .root-container.sticky .menu  li a:hover{
-        color: #fff;
-
-    }
-
-
-
-    /* menu button styling  */
-    .root-container .navbar-content .menu-btn{
-        color: #fff;
-        font-size: 2.3rem;
-        cursor: pointer;
-        display: none;
-    }
-
-.scroll-up-button{
-    height: 4.5rem;
-    width: 4.2rem;
-    background: crimson;
-    position: fixed;
-    bottom: 1rem;
-    right: 3rem;
-    text-align: center;
-    line-height: 4.5rem;
-    color: white;
-    z-index: 9999;
-    font-size: 3rem;
-    border-radius: 50%;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-}
-.scroll-up-button.show{
-    opacity: 1;
-    pointer-events: auto;
-    bottom: 3rem;
-}
-    
-/* Common css styling  */
-
-section{
-    padding: 10rem 0;
-    font-size: 1.6rem;
-    font-family: 'Poppins',sans-serif;
-    
-}
-
-footer{
-    font-family: 'Poppins',sans-serif;
-    font-size: 1.6rem;
-    background-color: #111;
-    padding: 2rem 2.3rem;
-    color: #fff;
-    text-align: center;
-
-}
-
-
-footer span a{
-    color: crimson;
-}
-
-footer span a:hover{
-    text-decoration: underline;
-
-}
-section .title{
-    font-family: 'Ubuntu', sans-serif; 
-    font-size: 4rem;
-    font-weight: 500;
-    text-align: center;
-    margin-bottom: 6rem;
-    padding-bottom: 2rem;
-    
-    
-}
-
-.about {
-    font-size: 1.6rem;
-    font-family: 'Poppins',sans-serif;
-    width: 100%;
-
-}
-
-
-    /* home section  start  */
-    section.home{
-        background-image: linear-gradient(rgba(0, 0, 0,0.1),rgba(0, 0, 0,0.7)), url('../images/bgimg.jpg');
-        background-repeat: no-repeat;
-        background-position:center;
-        background-size: cover;
-        width: 100%;
-        height: auto;
-        min-height: 50rem;        
-    }
-
-
-
-.home-content{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    /* font-size: 2rem; */
-    color: white;
-    margin: 10rem 0 14rem 0;
-
-}
-
-.home .home-content .text1{
-    font-size: 2.7rem;
-    font-weight: 500;
-}
-.home .home-content .text2{
-    font-size: 7.5rem;
-    font-weight: 600;
-    margin-left: -0.4rem;
-}
-.home .home-content .text3{
-    font-size: 4rem;
-    font-weight: 500;
-    
-}
-
-.home .home-content .text3 span{
-transition: all 0.3s ease;
-
-}
-
-.home .home-content .text3 span:hover{
-    font-size: 4.2rem;
-}
-.home .home-content a{
-    display: inline-block;
-    color: white;
-    font-size: 2.5rem;
-    background-color:crimson;
-    border: 0.1rem solid crimson;
-    padding: 1.2rem 3.5rem;
-    border-radius: 0.6rem;
-    transition: all 0.3s linear;
-    /* margin-top:2rem 0 0 -0.2rem; */
-    margin:2rem 0 0 1rem;
-
-}
-.home .home-content a:hover{
-    background-color: #000;
-    color: crimson;
-}
-.home .home-content .text3 span{
-    color: crimson;
-}
-
-
-
-
-
-
-
-/* about section styling  */
- 
-.about .about-content{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    -moz-flex-wrap: wrap;
-    /* flex-wrap: wrap; */
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: auto;
-
-}
-
-
-.about .about-content .column.left{
-    width: 45%;
-}
-.about .about-content .column.right{
-        width: 55%;
-
-}
-
-
-.about .about-content .left img{
-     width: 40rem;
-     height: 40rem;
-    /* width: 100%; */
-    /* height: auto; */
-    object-fit: cover;
-    /* border: 0.2rem red dotted; */
-    border-radius: 0.6rem;
-}
-
-.about .about-content .right .text{
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-
-
-}
-.about .about-content .right .text span{
-    color: crimson;
-}
-.about .about-content .right p{
-    text-align:justify;
-}
- 
-.about .about-content .right a{
-    /* display inline lock is mandatory to apply margin padding  */
-    display: inline-block;
-
-    color: white;
-    font-size: 2rem;
-    font-weight: 500;
-    background-color:crimson;
-    border: 0.1rem solid crimson;
-    padding: 1rem 3rem;
-    border-radius: 0.6rem;
-    transition: all 0.3s linear;
-    margin-top: 2rem;
-}
-
-.about .about-content .right a:hover{
-    color: crimson;
-    background: none;
-}
-
-
-
-/* services section styling  */
-
-.services{
-    color: #fff;
-    background-color: #111;
-
-}
-
-
-
-.services .services-content{
-    margin-bottom: 9rem;
-
-}
-
-.services .services-content .cards{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content:space-between;
-    align-items: center;
-
-
-}
-
-.services .services-content .cards .box{
-    background-color: #222;
-    width: calc(33% - 2rem);
-    text-align: center;
-    border-radius: 0.6rem;
-    padding: 2rem 2.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-
-}
-
-.services .services-content .cards .box:hover{
-    transform: scale(1.05);
-    /* transform: rotate(30deg); */
-    background-color: crimson;
-}
-.services .services-content .cards .box i{
-    font-size: 5rem;
-    color: crimson;
-    transition: all 0.3s ease;
-}
-
-.services .services-content .cards .box:hover i{
-    color: #fff;
-}
-.services .services-content .cards .box .text{
-    font-size: 2.5rem;
-    font-weight:500;
-    margin: 1rem 0 0.7rem 0;
-}
-
-
-
-/* Skill section styling  */
-
-
-.skills .skills-content{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 9rem;
-}
-
-.skills .skills-content .column{
-    width: calc(50% - 3rem);
-}
-
-
-.skills .skills-content .left .text{
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-.skills .skills-content .left p{
-    text-align: justify;
-}
-
-.skills .skills-content .left a{
-    display: inline-block;
-    color: white;
-    font-size: 1.8rem;
-    font-weight: 500;
-    background-color:crimson;
-    border: 0.1rem solid crimson;
-    padding: 0.8rem 1.6rem;
-    border-radius: 0.6rem;
-    margin-top: 2rem;
-    transition: all 0.3s linear;
-
-}
-
-.skills .skills-content .left a:hover{
-    color: crimson;
-    background:none;
-}
-
-.skills .skills-content .right .bars{
-    margin-bottom: 1.5rem;
-
-}
-.skills .skills-content .right .info{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom:0.5rem;
-
-}
-.skills .skills-content .right span{
-    font-size: 1.8rem;
-    font-weight: 600;
-}
-
-.skills .skills-content .right .line{
-    height: 0.5rem;
-    width: 100%;
-    background-color: lightgray;
-    position: relative;
-}
-.skills .skills-content .right .line::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background-color: crimson;
-
-
-}
-
-.skills .skills-content .right .html::before{
-    width: 90%;
-}
-.skills .skills-content .right .css::before{
-    width: 60%;
-}
-.skills .skills-content .right .JavaScript::before{
-    width: 80%;
-}
-.skills .skills-content .right .php::before{
-    width: 70%;
-}
-.skills .skills-content .right .mysql::before{
-    width: 50%;
-}
-
-
-
-/* Team section styling  */
-
-section.team{
-    background-color: #000;
-}
-
-.team .title{
-    color: white;
-}
-
-.team .carousel .card {
-    background: #222;
-    color: #fff;
-    padding: 2.5rem 3.5rem;
-    border-radius: 0.6rem;
-    /* margin-bottom: 0.2rem; */
-    text-align: center;
-    transition: all 0.3s ease;
-
-}
-.team .carousel .card:hover{
-    background-color: crimson;
-
-}
-.team .carousel .card .text{
-    font-size: 2.5rem;
-    font-weight: 500;
-    margin: 1rem 0 0.7rem 0;
-}
-
-
-.team .carousel .card .box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-.team .carousel .card img{
-    height: 15rem;
-    width: 15rem;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 0.5rem crimson solid;
-    transition: all 0.3s ease;
-
-}
-
-.team .carousel .card:hover img{
-    border-color: #fff;
-}
-.team .carousel .card:hover .box{
-    transform: scale(1.05);
-}
-
-.owl-dots{
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.owl-dot{
-    height: 1.3rem;
-    width: 1.3rem;
-    border: 0.2rem crimson solid!important;
-    border-radius:50% ;
-    outline: none!important;
-    margin: 0 0.5rem;
-    transition: all 0.3s ease;
-}
-
-
-/* Note:- .active is  an custom class of owl carousel which change dots style on active  */
-.owl-dot.active{
-    width: 3.5rem;
-    border-radius: 1.3rem;
-
-}
-.owl-dot.active,
-.owl-dot:hover{
-    background-color: crimson!important;
-
-}
-
-
-/* Contact section styling  */
-.contact .contact-content{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.contact .contact-content .column{
-    width: calc(50% - 3rem);
-}
-
-
-.contact .contact-content .left .text{
-    font-size: 2.5rem;
-    font-weight: 500;
-    margin: 1rem 0 0.7rem 0;
-
-
-}
-.contact .contact-content .right .text{
-    font-size: 2.5rem;
-    font-weight: 500;
-    margin: 1rem 0 0.7rem 0;
-
-
-}
-
-
-.contact .contact-content .right .field,
-    .contact .contact-content .right .fields{
-    height: 4.5rem;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-}
-
-
-
-.contact .contact-content .right .fields .name{
-    margin-right: 1rem;
-}
-.contact .contact-content .right .fields .email{
-    margin-left: 1rem;
-
-}
-
-.contact .contact-content .right form .textarea{
-
-    height: 12rem;
-}
-
-.contact .contact-content .right form .textarea textarea,
-
-.contact .contact-content .right .field input{
-    height: 100%;
-    width: 100%;
-    border: 0.1rem solid lightgrey;
-    border-radius: 0.6rem;
-    padding: 0 2rem;
-    font-size: 1.8rem;
-    font-family: 'poppins',sans-serif;
-    resize: none;
-
-}
-.contact .contact-content .right .button button{
-    border: 0.1rem blue solid;
-    width: 20rem;
-    height: 5rem;
-    font-family: 'poppins',sans-serif;
-    font-size: 1.8rem;
-    border-radius: 0.6rem;
-    background: crimson;
-    color: #fff;
-    border-color: crimson;
-    transition: all 0.3s ease;
-
-}
-
-.contact .contact-content .right .button button:hover{
-    background: none;
-    color: crimson;
-}
-
-.contact .contact-content .left p{
-    text-align:justify;
-}
-.contact .contact-content .left .icons i{
-    font-size: 2.5rem;
-    color: crimson;
-}
-
-.contact .contact-content .left .icons .row{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    /* margin-bottom: 2rem; */
-    margin: 2rem 0 2rem 0;
-    
-}
-
-.contact .contact-content .left .icons .info{
-    margin-left: 2rem;
-}
-.contact .contact-content .left .icons .info .head{
-    font-size: 1.8rem;
-    font-weight: 500;
-}
-
-
-
-/* Media query start  */
-@media(min-width:1281px){}
-
-
-@media(min-width:1025px) and (max-width:1280px){
-    html{
-        font-size: 58%;
-    }
-    .home .home-content .text1{
-        font-size: 2.2rem;
-    }
-    .home .home-content .text2{
-        font-size: 7rem;
-    }
-    .home .home-content .text3{
-        font-size: 3.5rem;
-        
-    }
-
-.about .about-content .left img{
-    width: 37rem;
-    height: 37rem;
-
-}
-
-}
-/* Menu button styling  */
-@media(min-width:100px) and (max-width:1024px){
-    .navbar-content .menu li a{
-        font-size: 2.2rem!important;
-    }
-
-    .root-container.sticky .menu  li a:hover{
-        color: crimson;
-    }
-     .navbar-content .menu{
-        width: 100%;
-        height:100vh;
-        background-color: #000;
-        color: #fff;
-        position: fixed;
-        top: 0;
-        left: -100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .root-container .navbar-content .menu li{
-        padding: 0.2rem;
-        margin-bottom: 2rem;
-
-    }
+  /* .menu.active{
+    transition: all 0.5s linear;
+    right: 0;
 
-    .root-container .navbar-content .menu-btn{
-        display: block;
-        margin-top: 1rem;
-        z-index: 999;
-      
-    }
-
-    
-    .root-container .navbar-content .menu.active{
-        left:0;
-    }
-
-
-    .root-container .navbar-content .menu-btn i.active::before{
-        content: '\f00d';    
-    }
-    
-
-    .about .about-content .left img{
-        width: 34rem;
-        height: 34rem;
-    
-    }
-    .about .about-content .column.left{
-        width: 100%;
-    }
-    .about .about-content .column.right{
-        flex: 100%;
-    }
-    
-
-.contact .contact-content .column{
-    width: calc(100%);
-}
-    
-    .about .about-content .left {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto 6rem;
-    }
-
-   .about .parent-Container,.services .parent-Container,.skills .parent-Container,
-   .team .parent-Container,.contact .parent-Container{
-        /* max-width: 130rem;  */
-        padding: 0 1.5rem;
-        /* margin: auto; */
-    }
-   
-    
-    .skills .skills-content .column{
-        width: calc(100%);
-    }
-    
-
-.skills .skills-content .left a{
-    margin-bottom: 3rem;
-}
-
-}
-
-
-
-@media(min-width:768px) and (max-width:1024px){
-    html{
-        font-size: 58%;
-    }
-
-    .home .home-content .text1{
-        font-size: 1.8rem;
-    }
-    .home .home-content .text2{
-        font-size: 6.6rem;
-    }
-    .home .home-content .text3{
-        font-size: 3.1rem;
-        
-    }
-
-    .services .services-content .cards .box{
-        width: calc(50% - 1rem);
-        margin-bottom: 2rem;
-    }
-
-
-
-
+  } */
+  
+  h1{
+    background-color: pink;
+  
 }
-@media(min-width:481px) and (max-width:767px){
-    html{
-        font-size: 57%;
-    }
-
-    .home .home-content .text1{
-        font-size: 1.7rem;
-    }
-    .home .home-content .text2{
-        font-size: 6.3rem;
-    }
-    .home .home-content .text3{
-        font-size: 2.8rem;
-        
-    }
-    .services .services-content .cards .box{
-        width: calc(100% - 1rem);
-        margin-bottom: 2rem;
-    }
-}
-
-@media(min-width:320px) and (max-width:480px){
-    
-    html{
-        font-size: 56%;
-    }
-
-    .home .home-content .text1{
-        font-size: 1.8rem;
-    }
-    .home .home-content .text2{
-        font-size: 6rem;
-    }
-    .home .home-content .text3{
-        font-size: 2.8rem;
-        
-    }
 
-    .services .services-content .cards .box{
-        width: calc(100% - 1rem);
-        margin-bottom: 2rem;
-    }
-
 }
+@media screen and (max-width:576px) {
+  .container {
+    max-width: 54rem;   
+} 
+  h1{
+    background-color: grey;
+  }
 
-@media(max-width:480px){
-    .root-container .navbar-content .menu-btn{
-        margin-left: 1rem;
-    }
-    
 }
-
-@media(max-width:320px){
 
-html{
-        font-size: 56%;
-    }
 
-    .home .home-content .text1{
-        font-size: 1.8rem;
-    }
-    .home .home-content .text2{
-        font-size: 6rem;
-    }
-    .home .home-content .text3{
-        font-size: 2.8rem;
-        
-    }
-    .services .services-content .cards .box{
-        width: calc(100% - 1rem);
-        margin-bottom: 2rem;
-        border: 0.2rem blue solid;
-    }
+@media screen and (max-width:500px) {
+  .container {
+    width: 100%;   
+} 
+  h1{
+    background-color: yellowgreen; 
+  }
 }
-
-
-
-
-
-
-
